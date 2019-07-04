@@ -17,18 +17,18 @@ console.log(ext.isActive);
  * @param {vscode.ExtensionContext} context
  */
 
-function activate(context)
+async function activate(context)
 {
-	let disposable = vscode.commands.registerCommand('extension.helloWorld', () => {
+	let disposable = await vscode.commands.registerCommand('extension.helloWorld', async function() {
 
-		let uri = vscode.Uri.file('/home/rishabh/Desktop/A/refactor/testing_code/test.js');
+		let uri = vscode.Uri.file('/app/testing_code/test.js');
 		let p1 = new vscode.Position(0,0);
 		let p2 = new vscode.Position(0,21);
 		console.log(uri);
 		var x = vscode.workspace.getWorkspaceFolder(uri);
 		console.log(x);
-		vscode.workspace.openTextDocument(uri).then((document) => {
-			vscode.window.showTextDocument(document).then((editor) => {	
+		await vscode.workspace.openTextDocument(uri).then( async function(document) {
+			await vscode.window.showTextDocument(document).then( async function (editor) {	
 		  //let text = document.getText();
 				//let edit2 = new vscode.WorkspaceEdit();
 				//edit2.set(uri, [vscode.TextEdit.insert(new vscode.Position(0,0), "hello world")]);
@@ -71,8 +71,9 @@ function activate(context)
 				        });*/
 				        //for(var i = 0;i<10000000000;i++);
 				    
-					vscode.commands.executeCommand('cmstead.jsRefactor.extractMethod').then((res) => {
-						
+					var res = await vscode.commands.executeCommand('cmstead.jsRefactor.extractMethod');//.then((res) => {
+						console.log(res);
+						console.log(document.isDirty);
 						vscode.workspace.saveAll();
 						console.log("done!");
 						/*console.log("done!");
@@ -91,7 +92,7 @@ function activate(context)
 							});
 						}).catch (err => { console.log(err); console.log("error");}); */
 						
-					});
+					//});
 					//console.log("b");
 				//});
 			});

@@ -16,13 +16,14 @@ const vscode = require('vscode');
 
 // Defines a Mocha test suite to group tests of similar kind together
 console.log('it is working');
-test("testing 1" , function(){
+test("testing 1" ,async function(){
 	//let success = await vscode.commands.executeCommand('extension.helloWorld');
-	vscode.commands.executeCommand('extension.helloWorld').then((success) => {
+	await vscode.commands.executeCommand('extension.helloWorld').then((success) => {
 		console.log(success);
 		console.log('it is not working');
 		vscode.workspace.saveAll();
 	});
+	console.log("hello");
 });
 	
 /*vscode.commands.getCommands().then((data) => {
