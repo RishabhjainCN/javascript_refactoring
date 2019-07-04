@@ -1,0 +1,10 @@
+{
+"type" : "jcnu.refactor.convertToArrowFunction",
+"file" : "/home/rishabh/Desktop/A/refactor/testing_code/test.js",
+"startline" : 3,
+"startcol" : 9,
+"endline" : 3,
+"endcol" : 12,
+"varType" : "var",
+"name" :  "Namae"
+}

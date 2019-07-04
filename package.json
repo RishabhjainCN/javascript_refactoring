@@ -10,13 +10,28 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"onCommand:jcnu.refactor.extractMethod",
+		"onCommand:jcnu.refactor.extractVariable",
+		"onCommand:jcnu.refactor.addExport",
+		"onCommand:jcnu.refactor.convertToArrowFunction"
 	],
 	"main": "./extension.js",
 	"contributes": {
 		"commands": [{
-            "command": "extension.helloWorld",
-			"title": "Hello World"
+            "command": "jcnu.refactor.extractMethod",
+			"title": "Extract Method Refactoring"
+		},
+		{
+			"command": "jcnu.refactor.extractVariable",
+			"title": "Extract Variable Refactoring"	
+		},
+		{
+			"command": "jcnu.refactor.addExport",
+			"title": "adding Function to export Refactoring"	
+		},
+		{
+			"command": "jcnu.refactor.convertToArrowFunction",
+			"title": "converting Function to arrow Function Refactoring"	
 		}]
 	},
 	"scripts": {
